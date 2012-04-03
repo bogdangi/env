@@ -1,14 +1,36 @@
+setup_dir=`pwd`
+
 # Install pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 wget https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim -O ~/.vim/autoload/pathogen.vim 
 
+# Update all vim's bandels
+cd ~/.vim/bundle
+for bundle in `ls`
+do
+	cd $bundle
+	echo Update $bundle
+	git pull
+	cd ..
+done
+cd $setup_dir
+
 # Setup fugitive
 cd ~/.vim/bundle
-git clone git://github.com/tpope/vim-fugitive.git
+if ! [ -d "vim-fugitive" ]
+then
+	git clone git://github.com/tpope/vim-fugitive.git
+fi
+cd $setup_dir
 
 # Setup colors-solarized
 cd ~/.vim/bundle
-git clone git://github.com/altercation/vim-colors-solarized.git
+if ! [ -d "vim-colors-solarized" ]
+then
+	git clone git://github.com/altercation/vim-colors-solarized.git
+fi
+cd $setup_dir
 
 # Set vimrc
+cd $setup_dir
 cp vimrc ~/.vimrc
