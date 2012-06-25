@@ -23,13 +23,6 @@ then
 fi
 cd $setup_dir
 
-# Setup colors-solarized
-cd ~/.vim/bundle
-if ! [ -d "vim-colors-solarized" ]
-then
-	git clone git://github.com/altercation/vim-colors-solarized.git
-fi
-cd $setup_dir
 
 # Set vimrc
 cd $setup_dir
