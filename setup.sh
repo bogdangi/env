@@ -27,5 +27,4 @@ cd $setup_dir
 
 
 # Set vimrc
-cd $setup_dir
-cp vimrc ~/.vimrc
+ln -s $setup_dir/vimrc ~/.vimrc
