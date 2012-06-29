@@ -24,7 +24,7 @@ call pathogen#infect()
 syntax on
 filetype plugin indent on
 
-# Set 4 spaces on tab
+" Set 4 spaces on tab
 set tabstop=4
 set shiftwidth=4
 set expandtab
