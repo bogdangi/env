@@ -27,7 +27,7 @@ cd $setup_dir
 cd ~/.vim/bundle
 if ! [ -d "snipmate.vim" ]
 then
-	git clone git://github.com/msanders/snipmate.vim.git
+	git clone git://github.com/msanders/snipmate.vim.git snipmate
 fi
 cd $setup_dir
 
