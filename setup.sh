@@ -23,6 +23,13 @@ then
 fi
 cd $setup_dir
 
+# Setup snipmate
+cd ~/.vim/bundle
+if ! [ -d "snipmate.vim" ]
+then
+	git clone git://github.com/msanders/snipmate.vim.git
+fi
+cd $setup_dir
 
 # Set vimrc
 cd $setup_dir
