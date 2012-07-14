@@ -1,4 +1,6 @@
 INSTALL
 =======
 
-./setup.sh
+Install env
+
+    ./setup.sh
