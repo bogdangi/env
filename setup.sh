@@ -31,6 +31,14 @@ then
 fi
 cd $setup_dir
 
+# Setup VCScommand
+cd ~/.vim/bundle
+if ! [ -d "vcscommand" ]
+then
+	git clone git://github.com/vim-scripts/vcscommand.vim.git vcscommand
+fi
+cd $setup_dir
+
 # Set vimrc
 cd $setup_dir
 cp vimrc ~/.vimrc
