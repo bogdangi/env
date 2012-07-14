@@ -39,7 +39,6 @@ then
 fi
 cd $setup_dir
 
-
 # Set vimrc
 cd $setup_dir
 cp vimrc ~/.vimrc
