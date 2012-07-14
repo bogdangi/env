@@ -31,7 +31,7 @@ then
 fi
 cd $setup_dir
 
-# Setup VCScommand
+# Setup VCScommand (git, svn, cvs)
 cd ~/.vim/bundle
 if ! [ -d "vcscommand" ]
 then
