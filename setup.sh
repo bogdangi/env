@@ -1,8 +1,10 @@
 setup_dir=`pwd`
 
 # Install pathogen
-mkdir -p ~/.vim/autoload ~/.vim/bundle
-wget https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim -O ~/.vim/autoload/pathogen.vim 
+mkdir -p ~/.vim/autoload ~/.vim/bundle; \
+    curl -so ~/.vim/autoload/pathogen.vim \
+        https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+
 
 # Update all vim's bandels
 cd ~/.vim/bundle
@@ -47,5 +49,4 @@ then
 fi
 
 # Set vimrc
-cd $setup_dir
-cp vimrc ~/.vimrc
+ln -sf $setup_dir/vimrc $HOME/.vimrc
