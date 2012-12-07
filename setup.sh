@@ -25,6 +25,28 @@ then
 fi
 cd $setup_dir
 
+# Setup snipmate
+cd ~/.vim/bundle
+if ! [ -d "snipmate" ]
+then
+	git clone git://github.com/msanders/snipmate.vim.git snipmate
+fi
+cd $setup_dir
+
+# Setup VCScommand (git, svn, cvs)
+cd ~/.vim/bundle
+if ! [ -d "vcscommand" ]
+then
+	git clone git://github.com/vim-scripts/vcscommand.vim.git vcscommand
+fi
+cd $setup_dir
+
+# SOLARIZED COLORSCHEME FOR VIM
+cd ~/.vim/bundle
+if ! [ -d "vim-colors-solarized" ]
+then
+	git clone git://github.com/altercation/vim-colors-solarized.git vim-colors-solarized
+fi
 
 # Set vimrc
-ln -s $setup_dir/vimrc ~/.vimrc
+ln -sf $setup_dir/vimrc $HOME/.vimrc
