@@ -49,5 +49,4 @@ then
 fi
 
 # Set vimrc
-cd $setup_dir
 ln -sf $setup_dir/vimrc $HOME/.vimrc
