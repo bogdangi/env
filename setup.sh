@@ -29,6 +29,8 @@ if ! [ -d "snipmate" ]
 then
 	git clone git://github.com/msanders/snipmate.vim.git snipmate
 fi
+cd snipmate/snippets/
+patch -p0 < $setup_dir/vim-snippets/python.snippets.patch
 cd $setup_dir
 
 # Setup VCScommand (git, svn, cvs)
