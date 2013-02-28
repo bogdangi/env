@@ -1,8 +1,17 @@
+#!/bin/bash
+
 setup_dir=`pwd`
 
-# Install pathogen
+
+if [[ `which curl` ]]; then
+    download="curl --silent --output"
+elif [[ `which wget` ]]; then
+    download="wget --quiet --output-document"
+fi
+
+echo Install pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle; \
-    curl -so ~/.vim/autoload/pathogen.vim \
+    $download ~/.vim/autoload/pathogen.vim \
         https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
 
