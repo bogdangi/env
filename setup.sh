@@ -41,7 +41,7 @@ then
 	git clone git://github.com/msanders/snipmate.vim.git snipmate
 fi
 cd snipmate/snippets/
-patch -p0 < $setup_dir/vim-snippets/python.snippets.patch
+#patch -p0 < $setup_dir/vim-snippets/python.snippets.patch
 cd $setup_dir
 
 # Setup VCScommand (git, svn, cvs)
@@ -57,6 +57,12 @@ cd ~/.vim/bundle
 if ! [ -d "vim-colors-solarized" ]
 then
 	git clone git://github.com/altercation/vim-colors-solarized.git vim-colors-solarized
+fi
+
+cd ~/.vim/bundle
+if ! [ -d "robotframework-vim" ]
+then
+	git clone git://github.com/mfukar/robotframework-vim.git robotframework-vim
 fi
 
 # Set vimrc
