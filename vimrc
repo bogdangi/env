@@ -31,3 +31,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set number
+
+" Set syntax
+au BufNewFile,BufRead *.zcml set filetype=xml
+au BufNewFile,BufRead *.robot set filetype=robot
