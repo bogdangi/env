@@ -72,9 +72,9 @@ then
 fi
 
 cd ~/.vim/bundle
-if ! [ -d "syntastic" ]
+if ! [ -d "python-mode" ]
 then
-	git clone https://github.com/scrooloose/syntastic.git syntastic
+	git clone https://github.com/klen/python-mode.git python-mode
 fi
 
 # Set vimrc
