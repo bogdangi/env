@@ -65,5 +65,17 @@ then
 	git clone git://github.com/mfukar/robotframework-vim.git robotframework-vim
 fi
 
+cd ~/.vim/bundle
+if ! [ -d "vim-flake8" ]
+then
+	git clone https://github.com/nvie/vim-flake8.git vim-flake8
+fi
+
+cd ~/.vim/bundle
+if ! [ -d "syntastic" ]
+then
+	git clone https://github.com/scrooloose/syntastic.git syntastic
+fi
+
 # Set vimrc
 ln -sf $setup_dir/vimrc $HOME/.vimrc
