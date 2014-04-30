@@ -35,3 +35,6 @@ set number
 " Set syntax
 au BufNewFile,BufRead *.zcml set filetype=xml
 au BufNewFile,BufRead *.robot set filetype=robot
+
+" No newline at end of file
+set fileformats+=dos
