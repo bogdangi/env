@@ -77,5 +77,11 @@ then
 	git clone https://github.com/klen/python-mode.git python-mode
 fi
 
+cd ~/.vim/bundle
+if ! [ -d "nerdtree" ]
+then
+	git clone https://github.com/scrooloose/nerdtree nerdtree
+fi
+
 # Set vimrc
 ln -sf $setup_dir/vimrc $HOME/.vimrc
