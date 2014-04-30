@@ -21,8 +21,9 @@ function! RotateEnc()
 endfunction
 
 call pathogen#infect()
-call pathogen#incubate()
+call pathogen#infect('bundle/{}')
 call pathogen#helptags()
+
 syntax on
 filetype plugin indent on
 
