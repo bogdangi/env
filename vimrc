@@ -78,6 +78,7 @@ Plugin 'davidhalter/jedi-vim'       " Jedi-vim autocomplete plugin
 Plugin 'mitsuhiko/vim-jinja'        " Jinja support for vim
 Plugin 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
 Plugin 'vim-scripts/closetag.vim'
+Plugin 'Rykka/riv.vim'
 
 call vundle#end()                   " required
 filetype on
@@ -291,3 +292,6 @@ autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako source ~/.vim/sc
 " --- CSS ---
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+
+" --- Riv ----
+let g:riv_fold_auto_update=0
