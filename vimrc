@@ -60,6 +60,9 @@ Plugin 'rosenfeld/conque-term'          " Consoles as buffers
 Plugin 'tpope/vim-surround'     " Parentheses, brackets, quotes, XML tags, and more
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/vcscommand.vim'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'mhinz/vim-signify'
 
 
 "--------------=== Snippets support ===---------------
@@ -164,10 +167,14 @@ let g:snippets_dir = "~/.vim/vim-snippets/snippets"
 
 " настройки Vim-Airline
 set laststatus=2
-let g:airline_theme='badwolf'
+let g:airline_theme='solarized'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+" настройки Vim-Powerline
+set t_Co=256
+let g:Powerline_symbols = 'unicode'
 
 " TagBar настройки
 map <F4> :TagbarToggle<CR>
