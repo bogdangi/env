@@ -125,6 +125,7 @@ endif
 else
 " терминал?
   colorscheme solarized
+  set background=light
 endif
 
 tab sball
