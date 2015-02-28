@@ -89,3 +89,8 @@ let g:airline#extensions#tabline#enabled = 1
 filetype on
 filetype plugin on
 filetype plugin indent on
+
+set laststatus=2
+set encoding=utf-8
+set t_Co=256
+let g:Powerline_symbols = 'fancy'
