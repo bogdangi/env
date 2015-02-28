@@ -20,10 +20,6 @@ function! RotateEnc()
   endwhile
 endfunction
 
-call pathogen#infect()
-call pathogen#infect('bundle/{}')
-call pathogen#helptags()
-
 syntax on
 filetype plugin indent on
 
@@ -39,3 +35,62 @@ au BufNewFile,BufRead *.robot set filetype=robot
 
 " No newline at end of file
 set fileformats+=dos
+
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+"=====================================================
+" Vundle settings
+"=====================================================
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'      " let Vundle manage Vundle, required
+
+"---------=== Code/project navigation ===-------------
+Plugin 'scrooloose/nerdtree'            " Project and file navigation
+Plugin 'majutsushi/tagbar'              " Class/module browser
+
+"------------------=== Other ===----------------------
+Plugin 'bling/vim-airline'              " Lean & mean status/tabline for vim
+Plugin 'fisadev/FixedTaskList.vim'      " Pending tasks list
+Plugin 'rosenfeld/conque-term'          " Consoles as buffers
+Plugin 'tpope/vim-surround'     " Parentheses, brackets, quotes, XML tags, and more
+Plugin 'altercation/vim-colors-solarized'   " Solarized schema
+Plugin 'vim-scripts/vcscommand.vim'
+
+
+"--------------=== Snippets support ===---------------
+Plugin 'garbas/vim-snipmate'        " Snippets manager
+Plugin 'MarcWeber/vim-addon-mw-utils'   " dependencies #1
+Plugin 'tomtom/tlib_vim'        " dependencies #2
+Plugin 'honza/vim-snippets'     " snippets repo
+
+"---------------=== Languages support ===-------------
+" --- Python ---
+Plugin 'klen/python-mode'           " Python mode (docs, refactor, lints, highlighting, run and ipdb and more)
+Plugin 'davidhalter/jedi-vim'       " Jedi-vim autocomplete plugin
+Plugin 'mitsuhiko/vim-jinja'        " Jinja support for vim
+Plugin 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
+Plugin 'vim-scripts/closetag.vim'
+Plugin 'Rykka/riv.vim'              " RST support
+Plugin 'Rykka/clickable.vim'        " RST support
+Plugin 'Lokaltog/powerline'         " Status line support
+Plugin 'airblade/vim-gitgutter'     " Show changed lines
+
+call vundle#end()                   " required
+
+colorscheme solarized
+" airline settings
+let g:airline#extensions#tabline#enabled = 1
+"
+filetype on
+filetype plugin on
+filetype plugin indent on
+
+set laststatus=2
+set encoding=utf-8
+set t_Co=256
+let g:Powerline_symbols = 'fancy'

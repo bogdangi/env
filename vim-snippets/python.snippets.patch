@@ -1,8 +1,0 @@
---- python.snippets	2012-07-14 06:31:22.331766068 +0300
-+++ python.snippets	2017-02-25 12:23:00.390442702 +0200
-@@ -84,3 +84,5 @@
- # __magic__
- snippet _
- 	__${1:init}__${2}
-+snippet pdb
-+	import pdb;pdb.set_trace()
