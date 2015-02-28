@@ -58,7 +58,7 @@ Plugin 'bling/vim-airline'              " Lean & mean status/tabline for vim
 Plugin 'fisadev/FixedTaskList.vim'      " Pending tasks list
 Plugin 'rosenfeld/conque-term'          " Consoles as buffers
 Plugin 'tpope/vim-surround'     " Parentheses, brackets, quotes, XML tags, and more
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'   " Solarized schema
 Plugin 'vim-scripts/vcscommand.vim'
 
 
@@ -77,6 +77,11 @@ Plugin 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
 Plugin 'vim-scripts/closetag.vim'
 
 call vundle#end()                   " required
+
+colorscheme solarized
+" airline settings
+let g:airline#extensions#tabline#enabled = 1
+"
 filetype on
 filetype plugin on
 filetype plugin indent on
