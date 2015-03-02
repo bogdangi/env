@@ -30,7 +30,6 @@ set expandtab
 set number
 
 " Set syntax
-au BufNewFile,BufRead *.zcml set filetype=xml
 au BufNewFile,BufRead *.robot set filetype=robot
 
 " No newline at end of file
@@ -79,6 +78,15 @@ Plugin 'mitsuhiko/vim-jinja'        " Jinja support for vim
 Plugin 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
 Plugin 'vim-scripts/closetag.vim'
 Plugin 'Rykka/riv.vim'
+"
+" --- JavaScript ---
+Plugin 'Shutnik/jshint2.vim'
+"
+" --- Coffee script ---
+Plugin 'kchmck/vim-coffee-script'
+"
+" --- dir diff ---
+Plugin 'vim-scripts/DirDiff.vim'
 
 call vundle#end()                   " required
 filetype on
@@ -91,7 +99,6 @@ filetype plugin indent on
 "=====================================================
 set backspace=indent,eol,start
 aunmenu Help.
-aunmenu Window.
 let no_buffers_menu=1
 set mousemodel=popup
 
@@ -165,7 +172,8 @@ augroup vimrc_autocmds
 augroup END
 
 " указываем каталог с настройками SnipMate
-let g:snippets_dir = "~/.vim/vim-snippets/snippets"
+" let g:snippets_dir = "~/.vim/vim-snippets/snippets"
+let g:snippets_dir = "~/.vim/bundle/zope-snipmate-bundle/snippets/"
 
 " настройки Vim-Airline
 set laststatus=2
@@ -269,7 +277,7 @@ nnoremap <leader>Td :set ft=django<CR>
 " Languages support
 "=====================================================
 " --- Python ---
-"autocmd FileType python set completeopt-=preview " раскомментируйте, в случае, если не надо, чтобы jedi-vim показывал документацию по методу/классу
+autocmd FileType python set completeopt-=preview " раскомментируйте, в случае, если не надо, чтобы jedi-vim показывал документацию по методу/классу
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8
 \ formatoptions+=croq softtabstop=4 smartindent
 \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
@@ -301,3 +309,12 @@ autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 
 " --- Riv ----
 let g:riv_fold_auto_update=0
+
+
+" zope-snipmate-bundle
+let g:snipMate = {}
+let g:snipMate['snippet_dirs'] = funcref#Function('return ["~/.vim/bundle/vim-snippets", "~/.vim/bundle/zope-snipmate-bundle/"]')
+
+au BufNewFile,BufRead *.pt set filetype=html.pt.html-zpt-zope
+au BufNewFile,BufRead *.rst set filetype=rst.restructuredtext-doctest-zope
+au BufNewFile,BufRead *.zcml set filetype=xml.zcml.xml-genericsetup-zope.xml-zcml-zope
