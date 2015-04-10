@@ -78,6 +78,7 @@ Plugin 'vim-scripts/closetag.vim'
 Plugin 'Rykka/riv.vim'              " RST support
 Plugin 'Lokaltog/powerline'         " Status line support
 Plugin 'airblade/vim-gitgutter'     " Show changed lines
+Plugin 'vim-scripts/DirDiff.vim'
 
 call vundle#end()                   " required
 
