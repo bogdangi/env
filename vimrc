@@ -76,7 +76,6 @@ Plugin 'mitsuhiko/vim-jinja'        " Jinja support for vim
 Plugin 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
 Plugin 'vim-scripts/closetag.vim'
 Plugin 'Rykka/riv.vim'              " RST support
-Plugin 'Rykka/clickable.vim'        " RST support
 Plugin 'Lokaltog/powerline'         " Status line support
 Plugin 'airblade/vim-gitgutter'     " Show changed lines
 
