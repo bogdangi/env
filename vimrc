@@ -23,9 +23,9 @@ endfunction
 syntax on
 filetype plugin indent on
 
-" Set 4 spaces on tab
-set tabstop=4
-set shiftwidth=4
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType xml setlocal shiftwidth=2 tabstop=2
+autocmd FileType javascript setlocal shiftwidth=4 tabstop=4
 set expandtab
 set number
 
