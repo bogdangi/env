@@ -17,3 +17,6 @@ echo ":PluginInstall" | vim
 # Git autocomplete
 brew install git bash-completion
 ln -sf $setup_dir/bash_profile $HOME/.bash_profile
+
+# Git config
+ln -sf $setup_dir/gitconfig $HOME/.gitconfig
