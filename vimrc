@@ -82,6 +82,8 @@ Plugin 'vim-scripts/DirDiff.vim'
 
 call vundle#end()                   " required
 
+syntax enable
+set background=light
 colorscheme solarized
 " airline settings
 let g:airline#extensions#tabline#enabled = 1
