@@ -37,3 +37,5 @@ function BashPrompt() {
 
 # ...and the hook which updates the prompt whenever we run a command
 PROMPT_COMMAND='PS1=$(BashPrompt)'
+
+PATH=$PATH:$HOME/bin
