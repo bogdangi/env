@@ -39,3 +39,6 @@ function BashPrompt() {
 PROMPT_COMMAND='PS1=$(BashPrompt)'
 
 PATH=$PATH:$HOME/bin
+
+# Kubectl shell completion
+source '/Users/bogdan/.kube/completion.bash.inc'
