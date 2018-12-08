@@ -20,3 +20,4 @@ ln -sf $setup_dir/bash_profile $HOME/.bash_profile
 
 # Git config
 ln -sf $setup_dir/gitconfig $HOME/.gitconfig
+ln -sf $setup_dir/gitignore_global $HOME/.gitignore_global

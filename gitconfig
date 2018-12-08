@@ -5,3 +5,4 @@
 	email = bogdan.girman@gmail.com
 [core]
 	editor = vim
+	excludesfile = ~/.gitignore_global
