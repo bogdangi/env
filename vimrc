@@ -26,6 +26,7 @@ filetype plugin indent on
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType xml setlocal shiftwidth=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
+autocmd FileType go setlocal shiftwidth=4 tabstop=4
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4
 set expandtab
 set number
