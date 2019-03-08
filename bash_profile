@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Git autocomplete
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-
 # Improvement for the promt
 
 parse_git_branch() {
@@ -45,6 +42,11 @@ function BashPrompt() {
 PROMPT_COMMAND='PS1=$(BashPrompt)'
 
 PATH=$PATH:$HOME/bin
+
+# git completion
+if [ -f $HOME/.git-completion.bash ]; then
+        source $HOME/.git-completion.bash
+fi
 
 
 # Kubectl shell completion
