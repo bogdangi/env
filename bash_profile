@@ -10,6 +10,9 @@ parse_git_branch() {
 }
 
 # helper functions for Bash - easier coloring than using escape sequences
+function Background() {
+  echo "\[$(tput setab $1)\]"
+}
 function Color() {
   echo "\[$(tput setaf $1)\]"
 }
@@ -32,7 +35,10 @@ function BashPrompt() {
         last_status="$(Color 2)$success$reset"
     fi
 
-    echo "$last_status \u@\h:\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\] \n$ "
+    git_branch="$(Color 5)$(parse_git_branch)$reset"
+    k8s_context="$(Background 4)$(Color 7)$(kubectl config get-contexts --output=name)$reset"
+
+    echo "$last_status \u@\h:\w $git_branch $k8s_context\n$ "
 }
 
 # ...and the hook which updates the prompt whenever we run a command
