@@ -46,5 +46,18 @@ PROMPT_COMMAND='PS1=$(BashPrompt)'
 
 PATH=$PATH:$HOME/bin
 
+
 # Kubectl shell completion
-source '/Users/bogdan/.kube/completion.bash.inc'
+if [ -f $HOME/.kube/completion.bash.inc ]; then
+        source $HOME/.kube/completion.bash.inc
+fi
+
+# AWS specific commands
+function aws_docker_login() {
+        $(aws ecr  get-login --no-include-email)
+}
+
+# Machine specific
+if [ -f $HOME/.bash_profile_this_machine_specific ]; then
+        source $HOME/.bash_profile_this_machine_specific
+fi
