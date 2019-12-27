@@ -21,6 +21,10 @@ Plugin 'scrooloose/nerdtree'                    " Project and file navigation
 
 "------------------=== Other ===----------------------
 Plugin 'altercation/vim-colors-solarized'       " Solarized schema
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()                               " required
 
