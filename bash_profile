@@ -63,3 +63,5 @@ function aws_docker_login() {
 if [ -f $HOME/.bash_profile_this_machine_specific ]; then
         source $HOME/.bash_profile_this_machine_specific
 fi
+
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"

@@ -3,6 +3,7 @@ autocmd FileType xml setlocal shiftwidth=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 autocmd FileType go setlocal shiftwidth=4 tabstop=4
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4
+autocmd FileType json setlocal shiftwidth=4 tabstop=4
 set expandtab
 set number
 
@@ -25,9 +26,14 @@ Plugin 'altercation/vim-colors-solarized'       " Solarized schema
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'                 " Show changed lines
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'posva/vim-vue'
 
 "--------------=== Snippets support ===---------------
-Plugin 'honza/vim-snippets'                     " snippets repo
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'garbas/vim-snipmate'
+" Plugin 'honza/vim-snippets'
 
 call vundle#end()                               " required
 
