@@ -25,6 +25,7 @@ function BashPrompt() {
 
     local failure="✘"
     local success="✔"
+    local time=$(date +"%H:%M:%S")
 
     if [[ "$last_status" != "0" ]]; then
         last_status="$(Color 5)$failure$reset"
@@ -35,7 +36,7 @@ function BashPrompt() {
     git_branch="$(Color 5)$(parse_git_branch)$reset"
     k8s_context="$(Background 4)$(Color 7)$(kubectl config get-contexts --output=name)$reset"
 
-    echo "$last_status \u@\h:\w $git_branch $k8s_context\n$ "
+    echo "$time $last_status \u@\h:\w $git_branch $k8s_context\n$ "
 }
 
 # ...and the hook which updates the prompt whenever we run a command
