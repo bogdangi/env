@@ -63,10 +63,6 @@ function Prompt() {
     echo "$time $last_status $USER@$HOST:$PWD $git_branch $k8s_context\n$ "
 }
 
-# ...and the hook which updates the prompt whenever we run a command
-PROMPT_COMMAND='PS1=$(Prompt)'
-precmd() { eval "$PROMPT_COMMAND" }
-
 PATH=$PATH:$HOME/bin
 
 # git completion
@@ -88,4 +84,17 @@ if [ -f $HOME/.bash_profile_this_machine_specific ]; then
         source $HOME/.bash_profile_this_machine_specific
 fi
 
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+# ...and the hook which updates the prompt whenever we run a command
+PROMPT_COMMAND='PS1=$(Prompt)'
+
+if [ -n "$ZSH_VERSION" ]; then
+        # assume Zsh
+        precmd() { eval "$PROMPT_COMMAND" }
+        autoload -Uz compinit
+        compinit
+        source <(kubectl completion zsh)
+elif [ -n "$BASH_VERSION" ]; then
+        # assume Bash
+else
+        # asume something else
+fi
