@@ -8,18 +8,42 @@ parse_git_branch() {
 
 # helper functions for Bash - easier coloring than using escape sequences
 function Background() {
-  echo "\[$(tput setab $1)\]"
+        if [ -n "$ZSH_VERSION" ]; then
+                # assume Zsh
+                echo "$(tput setab $1)"
+        elif [ -n "$BASH_VERSION" ]; then
+                # assume Bash
+                echo "\[$(tput setab $1)\]"
+        else
+                # asume something else
+        fi
 }
 function Color() {
-  echo "\[$(tput setaf $1)\]"
+        if [ -n "$ZSH_VERSION" ]; then
+                # assume Zsh
+                echo "$(tput setaf $1)"
+        elif [ -n "$BASH_VERSION" ]; then
+                # assume Bash
+                echo "\[$(tput setaf $1)\]"
+        else
+                # asume something else
+        fi
 }
 function ResetColor() {
-  echo "\[$(tput sgr0)\]"
+        if [ -n "$ZSH_VERSION" ]; then
+                # assume Zsh
+                echo "$(tput sgr0)"
+        elif [ -n "$BASH_VERSION" ]; then
+                # assume Bash
+                echo "\[$(tput sgr0)\]"
+        else
+                # asume something else
+        fi
 }
 
 # now you can add it to your prompt like this:
 # function which configures the prompet...
-function BashPrompt() {
+function Prompt() {
     local last_status=$?
     local reset=$(ResetColor)
 
@@ -36,18 +60,17 @@ function BashPrompt() {
     git_branch="$(Color 5)$(parse_git_branch)$reset"
     k8s_context="$(Background 4)$(Color 7)$(kubectl config get-contexts --output=name)$reset"
 
-    echo "$time $last_status \u@\h:\w $git_branch $k8s_context\n$ "
+    echo "$time $last_status $USER@$HOST:$PWD $git_branch $k8s_context\n$ "
 }
 
 # ...and the hook which updates the prompt whenever we run a command
-PROMPT_COMMAND='PS1=$(BashPrompt)'
+PROMPT_COMMAND='PS1=$(Prompt)'
+precmd() { eval "$PROMPT_COMMAND" }
 
 PATH=$PATH:$HOME/bin
 
 # git completion
-if [ -f $HOME/.git-completion.bash ]; then
-        source $HOME/.git-completion.bash
-fi
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 
 # Kubectl shell completion

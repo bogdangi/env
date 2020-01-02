@@ -13,6 +13,9 @@ ln -sf $setup_dir/tmux.conf $HOME/.tmux.conf
 # Configure BASH
 ln -sf $setup_dir/bash_profile $HOME/.bash_profile
 
+# Configurre ZSH
+ln -sf $setup_dir/zshrc $HOME/.zshrc
+
 # Configure git
 ln -sf $setup_dir/gitconfig $HOME/.gitconfig
 ln -sf $setup_dir/gitignore_global $HOME/.gitignore_global
