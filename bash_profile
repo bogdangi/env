@@ -47,7 +47,6 @@ function ResetColor() {
 # function which configures the prompet...
 function Prompt() {
     local last_status=$?
-    local reset=$(ResetColor)
 
     local failure="✘"
     local success="✔"
@@ -55,14 +54,14 @@ function Prompt() {
     local time=$(date +"%H:%M:%S")
 
     if [[ "$last_status" != "0" ]]; then
-        last_status="$(Color 5)$failure$reset"
+            last_status="$(Color 5)$failure$(ResetColor)"
     else
-        last_status="$(Color 2)$success$reset"
+            last_status="$(Color 2)$success$(ResetColor)"
     fi
 
-    aws_profile="$(Background 3)$(Color 7)$AWS_VAULT$reset"
-    git_branch="$(Color 5)$(parse_git_branch)$reset"
-    k8s_context="$(Background 4)$(Color 7)$(kubectl config get-contexts | awk 'NR>1 {print}' | grep "^\*" | awk '{print $2}')$reset"
+    aws_profile="$(Background 3)$(Color 7)$AWS_VAULT$(ResetColor)"
+    git_branch="$(Color 5)$(parse_git_branch)$(ResetColor)"
+    k8s_context="$(Background 4)$(Color 7)$(kubectl config get-contexts | awk 'NR>1 {print}' | grep "^\*" | awk '{print $2}')$(ResetColor)"
 
     echo "$time $last_status $USER@$HOST:$PWD\n $git_branch $k8s_context $aws_profile \n$ "
 }
