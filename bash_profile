@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export PATH=$PATH:$HOME/bin
+
 # Improvement for the promt
 
 parse_git_branch() {
@@ -49,6 +51,7 @@ function Prompt() {
 
     local failure="✘"
     local success="✔"
+
     local time=$(date +"%H:%M:%S")
 
     if [[ "$last_status" != "0" ]]; then
@@ -57,13 +60,13 @@ function Prompt() {
         last_status="$(Color 2)$success$reset"
     fi
 
+    aws_profile="$(Background 3)$(Color 7)$AWS_VAULT$reset"
     git_branch="$(Color 5)$(parse_git_branch)$reset"
-    k8s_context="$(Background 4)$(Color 7)$(kubectl config get-contexts --output=name)$reset"
+    k8s_context="$(Background 4)$(Color 7)$(kubectl config get-contexts | awk 'NR>1 {print}' | grep "^\*" | awk '{print $2}')$reset"
 
-    echo "$time $last_status $USER@$HOST:$PWD $git_branch $k8s_context\n$ "
+    echo "$time $last_status $USER@$HOST:$PWD\n $git_branch $k8s_context $aws_profile \n$ "
 }
 
-PATH=$PATH:$HOME/bin
 
 # git completion
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
@@ -98,3 +101,6 @@ elif [ -n "$BASH_VERSION" ]; then
 else
         # asume something else
 fi
+
+[[ -r "$HOME/.custom-aliases" ]] && source $HOME/.custom-aliases
+[[ -r "$HOME/.custom_profile" ]] && source $HOME/.custom_profile
