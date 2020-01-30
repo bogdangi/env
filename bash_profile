@@ -61,9 +61,12 @@ function Prompt() {
 
     aws_profile="$(Background 3)$(Color 7)$AWS_VAULT$(ResetColor)"
     git_branch="$(Color 5)$(parse_git_branch)$(ResetColor)"
-    k8s_context="$(Background 4)$(Color 7)$(kubectl config get-contexts | awk 'NR>1 {print}' | grep "^\*" | awk '{print $2}')$(ResetColor)"
+    k8s_context="$(Background 4)$(Color 7)$KUBE_CURRENT_CONTEXT$(ResetColor)"
 
-    echo "$time $last_status $USER@$HOST:$PWD\n $git_branch $k8s_context $aws_profile \n$ "
+    echo "$time $last_status $USER@$HOST:$PWD"
+    second_line="$aws_profile $k8s_context $git_branch"
+    [[ "X${second_line}X" != "X  X" ]] && echo $second_line
+    echo "$ "
 }
 
 
