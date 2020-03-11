@@ -59,7 +59,7 @@ function Prompt() {
             last_status="$(Color 2)$success$(ResetColor)"
     fi
 
-    aws_profile="$(Background 3)$(Color 7)$AWS_VAULT$(ResetColor)"
+    aws_profile="$(Background 3)$(Color 7)${AWS_VAULT:-$AWS_PROFILE}$(ResetColor)"
     git_branch="$(Color 5)$(parse_git_branch)$(ResetColor)"
     k8s_context="$(Background 4)$(Color 7)$KUBE_CURRENT_CONTEXT$(ResetColor)"
 
