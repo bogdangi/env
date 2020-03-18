@@ -16,8 +16,6 @@ function Background() {
         elif [ -n "$BASH_VERSION" ]; then
                 # assume Bash
                 echo "\[$(tput setab $1)\]"
-        else
-                # asume something else
         fi
 }
 function Color() {
@@ -27,8 +25,6 @@ function Color() {
         elif [ -n "$BASH_VERSION" ]; then
                 # assume Bash
                 echo "\[$(tput setaf $1)\]"
-        else
-                # asume something else
         fi
 }
 function ResetColor() {
@@ -38,8 +34,6 @@ function ResetColor() {
         elif [ -n "$BASH_VERSION" ]; then
                 # assume Bash
                 echo "\[$(tput sgr0)\]"
-        else
-                # asume something else
         fi
 }
 
@@ -92,16 +86,15 @@ fi
 # ...and the hook which updates the prompt whenever we run a command
 PROMPT_COMMAND='PS1=$(Prompt)'
 
+precmd() {
+        eval "$PROMPT_COMMAND"
+}
+
 if [ -n "$ZSH_VERSION" ]; then
         # assume Zsh
-        precmd() { eval "$PROMPT_COMMAND" }
         autoload -Uz compinit
         compinit
         source <(kubectl completion zsh)
-elif [ -n "$BASH_VERSION" ]; then
-        # assume Bash
-else
-        # asume something else
 fi
 
 [[ -r "$HOME/.custom-aliases" ]] && source $HOME/.custom-aliases
