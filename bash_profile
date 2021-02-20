@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 export PATH=$PATH:$HOME/bin
+export LC_ALL=en_US.UTF-8
 
 # Improvement for the promt
 
@@ -68,20 +69,10 @@ function Prompt() {
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 
-# Kubectl shell completion
-if [ -f $HOME/.kube/completion.bash.inc ]; then
-        source $HOME/.kube/completion.bash.inc
-fi
-
 # AWS specific commands
 function aws_docker_login() {
         $(aws ecr  get-login --no-include-email)
 }
-
-# Machine specific
-if [ -f $HOME/.bash_profile_this_machine_specific ]; then
-        source $HOME/.bash_profile_this_machine_specific
-fi
 
 # ...and the hook which updates the prompt whenever we run a command
 PROMPT_COMMAND='PS1=$(Prompt)'
@@ -95,7 +86,17 @@ if [ -n "$ZSH_VERSION" ]; then
         autoload -Uz compinit
         compinit
         source <(kubectl completion zsh)
+elif [ -n "$BASH_VERSION" ]; then
+        # assume Bash
+        source <(kubectl completion bash)
+else
+        # asume something else
 fi
 
 [[ -r "$HOME/.custom-aliases" ]] && source $HOME/.custom-aliases
 [[ -r "$HOME/.custom_profile" ]] && source $HOME/.custom_profile
+
+# Machine specific
+if [ -f $HOME/.bash_profile_this_machine_specific ]; then
+        source $HOME/.bash_profile_this_machine_specific
+fi

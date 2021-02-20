@@ -25,6 +25,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'fatih/vim-go'
 
 call vundle#end()                               " required
 
@@ -43,3 +44,8 @@ set scrolloff=5
 " Main theme
 set background=light
 colorscheme solarized
+
+
+" vim-go
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
