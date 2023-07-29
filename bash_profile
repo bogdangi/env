@@ -54,7 +54,8 @@ function Prompt() {
             last_status="$(Color 2)$success$(ResetColor)"
     fi
 
-    export KUBE_CURRENT_CONTEXT=$(kubectl config current-context)
+    KUBE_CURRENT_CONTEXT=$(command -v kubectl && kubectl config current-context)
+    export KUBE_CURRENT_CONTEXT
 
     aws_profile="$(Background 3)$(Color 7)${AWS_VAULT:-$AWS_PROFILE}$(ResetColor)"
     git_branch="$(Color 5)$(parse_git_branch)$(ResetColor)"
