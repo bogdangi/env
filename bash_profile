@@ -63,6 +63,11 @@ function Prompt() {
 
     echo "$time $last_status $USER@$HOST:$PWD"
     second_line="$aws_profile $k8s_context $git_branch"
+    # Add conda environment to prompt
+    if [ ! -z "$CONDA_DEFAULT_ENV" ]
+    then
+      second_line+="$(Background 7)$(Color 6)($CONDA_DEFAULT_ENV)$(ResetColor)"
+    fi
     [[ "X${second_line}X" != "X  X" ]] && echo $second_line
     echo "$ "
 }
