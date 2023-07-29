@@ -31,7 +31,6 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'fatih/vim-go'
 
 "------------------=== Linters ===----------------------
 Plugin 'dense-analysis/ale'
