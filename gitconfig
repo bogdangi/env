@@ -2,7 +2,16 @@
 	fulllog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
 [user]
 	name = Bogdan Girman
-	email = bogdan.girman@gmail.com
+	email = bogdan.girman@idealo.de
+	signingkey = 480B1EFFD578BDB1575D72F4339567BFD8154D45
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore_global
+[gpg]
+	program = /usr/local/bin/gpg
+[commit]
+	gpgsign = true
+[diff "sopsdiffer"]
+	textconv = sops -d
+[init]
+	defaultBranch = main

@@ -1,9 +1,15 @@
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType xml setlocal shiftwidth=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
+autocmd FileType sh setlocal shiftwidth=2 tabstop=2
 autocmd FileType go setlocal shiftwidth=4 tabstop=4
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4
 autocmd FileType json setlocal shiftwidth=4 tabstop=4
+autocmd FileType markdown setlocal shiftwidth=2 tabstop=2
+autocmd FileType tf setlocal shiftwidth=2 tabstop=2
+autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
+autocmd FileType cucumber setlocal shiftwidth=4 tabstop=4
+autocmd FileType kotlin setlocal shiftwidth=4 tabstop=4
 set expandtab
 set number
 
@@ -27,6 +33,22 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'fatih/vim-go'
 
+"------------------=== Linters ===----------------------
+Plugin 'dense-analysis/ale'
+let g:ale_linters = {
+\   'python': ['black', 'flake8', 'pylint', 'mypy'],
+\   'markdown': ['mdl'],
+\}
+
+"------------------=== Golang ===----------------------
+Plugin 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"------------------=== Kotlin ===----------------------
+Plugin 'udalov/kotlin-vim'
+"------------------=== Terraform ===----------------------
+Plugin 'hashivim/vim-terraform'
+"------------------=== Packer ===----------------------
+Plugin 'hashivim/vim-packer'
+
 call vundle#end()                               " required
 
 syntax on
@@ -45,10 +67,15 @@ set scrolloff=5
 set background=light
 colorscheme solarized
 
-
 " vim-go
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
 " nerdtree
 let NERDTreeShowHidden=1
+
+" GoLang
+let g:go_fmt_command = "goimports"
+
+" fix slow Typescript syntax highlighting in Vim
+set re=0

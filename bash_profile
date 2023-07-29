@@ -54,6 +54,8 @@ function Prompt() {
             last_status="$(Color 2)$success$(ResetColor)"
     fi
 
+    export KUBE_CURRENT_CONTEXT=$(kubectl config current-context)
+
     aws_profile="$(Background 3)$(Color 7)${AWS_VAULT:-$AWS_PROFILE}$(ResetColor)"
     git_branch="$(Color 5)$(parse_git_branch)$(ResetColor)"
     k8s_context="$(Background 4)$(Color 7)$KUBE_CURRENT_CONTEXT$(ResetColor)"
@@ -71,7 +73,9 @@ function Prompt() {
 
 # AWS specific commands
 function aws_docker_login() {
-        $(aws ecr  get-login --no-include-email)
+        aws_account_id=$1
+        region=$2
+        echo "aws ecr get-login-password --region $region | docker login --username AWS --password-stdin ${aws_account_id}.dkr.ecr.${region}.amazonaws.com"
 }
 
 # ...and the hook which updates the prompt whenever we run a command
@@ -91,6 +95,7 @@ elif [ -n "$BASH_VERSION" ]; then
         source <(kubectl completion bash)
 else
         # asume something else
+        echo "" -n
 fi
 
 [[ -r "$HOME/.custom-aliases" ]] && source $HOME/.custom-aliases
