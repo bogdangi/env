@@ -95,7 +95,7 @@ elif [ -n "$BASH_VERSION" ]; then
         command -v kubectl && source <(kubectl completion zsh)
 else
         # asume something else
-        echo "" -n
+        echo "Cannot recognize the sh"
 fi
 
 [[ -r "$HOME/.custom-aliases" ]] && source $HOME/.custom-aliases
