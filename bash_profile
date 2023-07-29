@@ -89,10 +89,10 @@ if [ -n "$ZSH_VERSION" ]; then
         # assume Zsh
         autoload -Uz compinit
         compinit
-        source <(kubectl completion zsh)
+        command -v kubectl && source <(kubectl completion zsh)
 elif [ -n "$BASH_VERSION" ]; then
         # assume Bash
-        source <(kubectl completion bash)
+        command -v kubectl && source <(kubectl completion zsh)
 else
         # asume something else
         echo "" -n
