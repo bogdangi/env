@@ -3,7 +3,7 @@
 setup_dir=`pwd`
 
 # Configure VIM
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/pack/Vundle.vim
 ln -sf $setup_dir/vimrc $HOME/.vimrc
 echo ":PluginInstall" | vim
 

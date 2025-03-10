@@ -39,14 +39,16 @@ let g:ale_linters = {
 \   'markdown': ['mdl'],
 \}
 
-"------------------=== Golang ===----------------------
-Plugin 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-"------------------=== Kotlin ===----------------------
-Plugin 'udalov/kotlin-vim'
+"------------------=== Copilot ===----------------------
+Plugin 'github/copilot.vim'
+""------------------=== Golang ===----------------------
+"Plugin 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+""------------------=== Kotlin ===----------------------
+"Plugin 'udalov/kotlin-vim'
 "------------------=== Terraform ===----------------------
 Plugin 'hashivim/vim-terraform'
-"------------------=== Packer ===----------------------
-Plugin 'hashivim/vim-packer'
+""------------------=== Packer ===----------------------
+"Plugin 'hashivim/vim-packer'
 
 call vundle#end()                               " required
 

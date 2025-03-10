@@ -117,5 +117,5 @@ export TF_PLUGIN_CACHE_DIR=$HOME/.terraform.d/plugin-cache
 export TF_PLUGIN_CACHE_MAY_BREAK_DEPENDENCY_LOCK_FILE=true
 
 # Terragrunt specific
-export TERRAGRUNT_PROVIDER_CACHE=1
-export TERRAGRUNT_PROVIDER_CACHE_DIR=$HOME/.terragrunt.d/provider-cache
+export TG_PROVIDER_CACHE=1
+export TG_PROVIDER_CACHE_DIR=$HOME/.terragrunt.d/provider-cache
