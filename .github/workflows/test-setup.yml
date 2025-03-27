@@ -24,3 +24,7 @@ jobs:
     - name: Verify setup
       run: |
         ./tests/test_setup.sh
+
+    - name: Run Docker container for testing
+      run: |
+        docker run --rm -v $(pwd):/workspace -w /workspace ubuntu:latest /bin/bash -c "chmod +x setup.sh && ./setup.sh && ./tests/test_setup.sh"
