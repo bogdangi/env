@@ -40,15 +40,9 @@ let g:ale_linters = {
 \}
 
 "------------------=== Copilot ===----------------------
-Plugin 'github/copilot.vim'
-""------------------=== Golang ===----------------------
-"Plugin 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-""------------------=== Kotlin ===----------------------
-"Plugin 'udalov/kotlin-vim'
+Plugin 'github/Copilot.vim'
 "------------------=== Terraform ===----------------------
 Plugin 'hashivim/vim-terraform'
-""------------------=== Packer ===----------------------
-"Plugin 'hashivim/vim-packer'
 
 call vundle#end()                               " required
 
