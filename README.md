@@ -41,3 +41,17 @@ cd env
 ```
 
 This will clone the repository, navigate into the repository directory, and run the setup script to configure the environment.
+
+## Tests
+
+Tests have been added to verify that `setup.sh` works as expected. The tests check if the symbolic links are created correctly and if VIM, tmux, BASH, ZSH, and git are configured correctly.
+
+To run the tests, execute the following command:
+
+```sh
+./tests/test_setup.sh
+```
+
+## GitHub Action
+
+A GitHub Action has been added to run `setup.sh` and verify the setup. The action uses `ubuntu-latest` as the runner and includes steps to check out the repository, run `setup.sh`, and verify the setup.

@@ -1,0 +1,26 @@
+name: Test Setup
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test-setup:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Run setup.sh
+      run: |
+        chmod +x setup.sh
+        ./setup.sh
+
+    - name: Verify setup
+      run: |
+        ./tests/test_setup.sh
