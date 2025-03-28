@@ -55,3 +55,11 @@ bats tests/test_setup.bats
 ## GitHub Action
 
 A GitHub Action has been added to run `setup.sh` and verify the setup. The action uses `ubuntu-latest` as the runner and includes steps to check out the repository, run `setup.sh`, and verify the setup.
+
+## Update Vim to version 8
+
+To update Vim to version 8, follow these steps:
+
+1. Ensure you have the latest package lists by running `sudo apt-get update`.
+2. Install Vim version 8 by running `sudo apt-get install vim`.
+3. Verify the installation by running `vim --version` to check the installed version.

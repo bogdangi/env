@@ -21,6 +21,11 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y bats
 
+    - name: Install Vim version 8
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y vim
+
     - name: Run setup.sh
       run: |
         chmod +x setup.sh
