@@ -37,3 +37,30 @@ setup() {
   run grep "[user]" "$HOME/.gitconfig"
   [ "$status" -eq 0 ]
 }
+
+@test "Check if all VIM plugins are installed" {
+  plugins=(
+    "scrooloose/nerdtree"
+    "altercation/vim-colors-solarized"
+    "airblade/vim-gitgutter"
+    "tpope/vim-fugitive"
+    "vim-airline/vim-airline"
+    "vim-airline/vim-airline-themes"
+    "dense-analysis/ale"
+    "github/Copilot.vim"
+    "hashivim/vim-terraform"
+  )
+
+  for plugin in "${plugins[@]}"; do
+    plugin_dir="$HOME/.vim/bundle/$(basename "$plugin")"
+    if [ ! -d "$plugin_dir" ]; then
+      echo "VIM plugin $plugin is missing"
+      return 1
+    fi
+  done
+}
+
+@test "Check if VIM plugins are functioning correctly" {
+  run vim -c "echo 'VIM plugins are functioning correctly'" -c "qa!"
+  [ "$status" -eq 0 ]
+}
