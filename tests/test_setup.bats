@@ -13,11 +13,6 @@ setup() {
   [ -L "$HOME/.gitignore_global" ]
 }
 
-@test "Check if VIM is configured correctly" {
-  run grep "Plugin 'scrooloose/nerdtree'" "$HOME/.vimrc"
-  [ "$status" -eq 0 ]
-}
-
 @test "Check if tmux is configured correctly" {
   run grep "set -g default-terminal \"screen-256color\"" "$HOME/.tmux.conf"
   [ "$status" -eq 0 ]
@@ -36,4 +31,40 @@ setup() {
 @test "Check if git is configured correctly" {
   run grep "[user]" "$HOME/.gitconfig"
   [ "$status" -eq 0 ]
+}
+
+@test "Check if nerdtree plugin directory exists" {
+  [ -d "$HOME/.vim/bundle/nerdtree" ]
+}
+
+@test "Check if vim-colors-solarized plugin directory exists" {
+  [ -d "$HOME/.vim/bundle/vim-colors-solarized" ]
+}
+
+@test "Check if vim-gitgutter plugin directory exists" {
+  [ -d "$HOME/.vim/bundle/vim-gitgutter" ]
+}
+
+@test "Check if vim-fugitive plugin directory exists" {
+  [ -d "$HOME/.vim/bundle/vim-fugitive" ]
+}
+
+@test "Check if vim-airline plugin directory exists" {
+  [ -d "$HOME/.vim/bundle/vim-airline" ]
+}
+
+@test "Check if vim-airline-themes plugin directory exists" {
+  [ -d "$HOME/.vim/bundle/vim-airline-themes" ]
+}
+
+@test "Check if ale plugin directory exists" {
+  [ -d "$HOME/.vim/bundle/ale" ]
+}
+
+@test "Check if Copilot.vim plugin directory exists" {
+  [ -d "$HOME/.vim/bundle/Copilot.vim" ]
+}
+
+@test "Check if vim-terraform plugin directory exists" {
+  [ -d "$HOME/.vim/bundle/vim-terraform" ]
 }
