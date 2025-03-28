@@ -1,6 +1,12 @@
 #!/bin/bash
 
+set -e
+
 setup_dir=`pwd`
+
+# Install Vim version 8
+sudo apt-get update
+sudo apt-get install -y vim
 
 # Configure VIM
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/pack/Vundle.vim
