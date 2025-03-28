@@ -38,23 +38,49 @@ setup() {
   [ "$status" -eq 0 ]
 }
 
-@test "Check if VIM plugins are installed" {
-  plugins=(
-    "scrooloose/nerdtree"
-    "altercation/vim-colors-solarized"
-    "airblade/vim-gitgutter"
-    "tpope/vim-fugitive"
-    "vim-airline/vim-airline"
-    "vim-airline/vim-airline-themes"
-    "dense-analysis/ale"
-    "github/Copilot.vim"
-    "hashivim/vim-terraform"
-  )
+@test "Check if VIM plugin scrooloose/nerdtree is installed" {
+  plugin_dir="$HOME/.vim/bundle/nerdtree"
+  [ -d "$plugin_dir" ] || { echo "Plugin scrooloose/nerdtree is missing"; return 1; }
+}
 
-  for plugin in "${plugins[@]}"; do
-    plugin_dir="$HOME/.vim/bundle/$(basename $plugin)"
-    [ -d "$plugin_dir" ] || { echo "Plugin $plugin is missing"; return 1; }
-  done
+@test "Check if VIM plugin altercation/vim-colors-solarized is installed" {
+  plugin_dir="$HOME/.vim/bundle/vim-colors-solarized"
+  [ -d "$plugin_dir" ] || { echo "Plugin altercation/vim-colors-solarized is missing"; return 1; }
+}
+
+@test "Check if VIM plugin airblade/vim-gitgutter is installed" {
+  plugin_dir="$HOME/.vim/bundle/vim-gitgutter"
+  [ -d "$plugin_dir" ] || { echo "Plugin airblade/vim-gitgutter is missing"; return 1; }
+}
+
+@test "Check if VIM plugin tpope/vim-fugitive is installed" {
+  plugin_dir="$HOME/.vim/bundle/vim-fugitive"
+  [ -d "$plugin_dir" ] || { echo "Plugin tpope/vim-fugitive is missing"; return 1; }
+}
+
+@test "Check if VIM plugin vim-airline/vim-airline is installed" {
+  plugin_dir="$HOME/.vim/bundle/vim-airline"
+  [ -d "$plugin_dir" ] || { echo "Plugin vim-airline/vim-airline is missing"; return 1; }
+}
+
+@test "Check if VIM plugin vim-airline/vim-airline-themes is installed" {
+  plugin_dir="$HOME/.vim/bundle/vim-airline-themes"
+  [ -d "$plugin_dir" ] || { echo "Plugin vim-airline/vim-airline-themes is missing"; return 1; }
+}
+
+@test "Check if VIM plugin dense-analysis/ale is installed" {
+  plugin_dir="$HOME/.vim/bundle/ale"
+  [ -d "$plugin_dir" ] || { echo "Plugin dense-analysis/ale is missing"; return 1; }
+}
+
+@test "Check if VIM plugin github/Copilot.vim is installed" {
+  plugin_dir="$HOME/.vim/bundle/Copilot.vim"
+  [ -d "$plugin_dir" ] || { echo "Plugin github/Copilot.vim is missing"; return 1; }
+}
+
+@test "Check if VIM plugin hashivim/vim-terraform is installed" {
+  plugin_dir="$HOME/.vim/bundle/vim-terraform"
+  [ -d "$plugin_dir" ] || { echo "Plugin hashivim/vim-terraform is missing"; return 1; }
 }
 
 @test "Check if VIM plugins are functioning correctly" {
