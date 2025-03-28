@@ -16,6 +16,11 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v2
 
+    - name: Install Bats
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y bats
+
     - name: Run setup.sh
       run: |
         chmod +x setup.sh
@@ -23,4 +28,4 @@ jobs:
 
     - name: Verify setup
       run: |
-        ./tests/test_setup.sh
+        bats tests/test_setup.bats

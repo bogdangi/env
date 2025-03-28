@@ -49,7 +49,7 @@ Tests have been added to verify that `setup.sh` works as expected. The tests che
 To run the tests, execute the following command:
 
 ```sh
-./tests/test_setup.sh
+bats tests/test_setup.bats
 ```
 
 ## GitHub Action
