@@ -38,7 +38,7 @@ setup() {
   [ "$status" -eq 0 ]
 }
 
-@test "Check if all VIM plugins are installed" {
+@test "Check if VIM plugins are installed" {
   plugins=(
     "scrooloose/nerdtree"
     "altercation/vim-colors-solarized"
@@ -52,11 +52,8 @@ setup() {
   )
 
   for plugin in "${plugins[@]}"; do
-    plugin_dir="$HOME/.vim/bundle/$(basename "$plugin")"
-    if [ ! -d "$plugin_dir" ]; then
-      echo "VIM plugin $plugin is missing"
-      return 1
-    fi
+    plugin_dir="$HOME/.vim/bundle/$(basename $plugin)"
+    [ -d "$plugin_dir" ] || { echo "Plugin $plugin is missing"; return 1; }
   done
 }
 
